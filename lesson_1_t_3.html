@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript basis</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';
+    	/*
+	    	1. Создаем переменную firstExpressionResult
+	    	2. При сложении первых двух 10-ток получаем 20
+	    	3. При сложении 20 и строки "10" происходит неявное приведение типа number числа 20 к типу string в результате происходит конкатенация строки "20" и строки "10"
+	    	4. Строку "2010" присваеваем переменной firstExpressionResult
+	    	4. Результат в консоли строка "2010"
+    	*/
+    	let firstExpressionResult = 10 + 10 + "10";
+    	console.log(firstExpressionResult);
+
+    	/*
+    		1. Создаем переменную secondExpressionResult
+    		2. При сложении числа 10 и строки "10" происходит неявное приведение типа number числа 10 к типу srting в результате происходит конкатенация строки "10" и строки "10"
+    		3. При дальнейшем сложении строки "1010" с числом 10 еще раз происходит неявное приведенеи типа number числа 10 к типу srting.
+    		4. Происходит конкатенация строки "1010" и строки "10". Результат строка "101010".
+    		5. Строка "101010" присваивается переменной secondExpressionResult
+    		6. Результат в консоли строка "101010".
+    	*/
+    	let secondExpressionResult = 10 + "10" + 10;
+    	console.log(secondExpressionResult);
+
+    	/*
+    		1. Создаем переменную thirdExpressionResult
+    		2. При сложении числа 10 и числа 10 получаем 20
+    		3. Т.к. перед строкой "10" стоит унарный плюс, то происходит явное приведение типа string к типу number
+    		4. Получившеяся в пункте 2 число 20 складывается с числом 10. Результат число 30.
+    		5. Число 30 присваивается переменной thirdExpressionResult
+    		6. Результат в консоли число 30.
+    	*/
+    	let thirdExpressionResult = 10 + 10 + +"10";
+    	console.log(thirdExpressionResult);
+
+    	/*
+    		1. Создаем переменную fourthExpressionResult
+    		2. При делении происходит неявное приведение типа string к типу number, при этом пустая строка становится нулем.
+    		3. Унарный минус делает ноль со знаком минус
+    		4. При делении 10 на -0 получаем минус бесконечность -Infinity
+    		5. -Infinity присваивается переменной fourthExpressionResult
+    		6. Результат в консоли -Infinity.
+    	*/
+    	let fourthExpressionResult = 10 / -"";
+    	console.log(fourthExpressionResult);
+
+    	/*
+			1. Создаем переменную fifthExpressionResult
+			2. При делении происходит неявное приведение типа string к типу number. Однако, по правилам языка JavaScript десятичные дроби записываются через точку. Поэтому +"2,5" становится NaN.
+			3. При делении 10 на NaN получается также NaN.
+			4. NaN присваивается переменной fifthExpressionResult.
+			5. Результат в консоли NaN.
+    	*/
+    	let fifthExpressionResult = 10 / +"2,5";
+    	console.log(fifthExpressionResult);
+
+    </script>
+</body>
+</html>
