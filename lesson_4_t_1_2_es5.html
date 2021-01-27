@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript basis</title>
+</head>
+<body>
+    <script>    	
+    	'use strict';    	
+		// создание и наследование в стиле es5
+		function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function(text) {
+            this.text = text;
+        };
+
+        let message = new Post('Helen', 'Hi everybody', new Date());
+        console.log(message);
+        message.edit('I like cheese!');
+        console.log(message);
+
+        function AttachedPost(author, text, date) {
+        	Post.call(this, author, text, date);
+        	this.highlighted = false;
+        }
+     
+     	AttachedPost.prototype = Object.create(Post.prototype);
+     	AttachedPost.constructor = AttachedPost;
+
+     	AttachedPost.prototype.makeTextHighlighted = function(highlighted) {
+     		this.highlighted = true;
+     	}
+
+     	let message2 = new AttachedPost('Jack', 'Hi Helen', new Date());
+     	console.log(message2);
+     	message2.edit('I like Jamaican rum');
+     	console.log(message2);
+     	message2.makeTextHighlighted();
+     	console.log(message2);
+    </script>
+</body>
+</html>

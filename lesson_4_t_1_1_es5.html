@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript basis</title>
+</head>
+<body>
+    <script>    	
+    	'use strict';
+		// создание объектов в стиле es5
+		function Product(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        Product.prototype.make25PercentDiscount = function() {
+            this.price *= 0.75;
+        };
+
+        let good1 = new Product('Fender CG-7', 15000);
+        good1.make25PercentDiscount();
+        console.log(good1);
+    </script>
+</body>
+</html>
