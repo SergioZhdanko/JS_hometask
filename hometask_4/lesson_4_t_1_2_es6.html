@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript basis</title>
+</head>
+<body>
+    <script>    	
+    	'use strict';
+		// создание объектов в стиле es6
+		class Post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            
+            edit(text) {
+                this.text = text;
+            }
+        }
+
+        let message = new Post('Helen', 'Hi everybody', new Date());
+        console.log(message);
+        message.edit('I like cheese!');
+        console.log(message);
+
+        class AttachedPost extends Post {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+
+            makeTextHighlighted(highlighted) {
+                this.highlighted = true;
+            }
+        }
+
+        let message2 = new AttachedPost('Jack', 'Hi Helen', new Date());
+        console.log(message2);
+        message2.edit('I like Jamaican rum');
+        console.log(message2);
+        message2.makeTextHighlighted();
+        console.log(message2);
+    </script>
+</body>
+</html>
